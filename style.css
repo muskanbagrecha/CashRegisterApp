@@ -1,13 +1,10 @@
-body{
-
-}
 
 :root{
     --primary-color: #D8BFD8;
 }
 
 .container{
-    max-width: 500px;
+    max-width: 600px;
     background-color: var(--primary-color);
     padding: 20px;
     margin: 20px;
@@ -66,4 +63,41 @@ thead th {
 
 #error-message{
     font-size: small;
+}
+
+#logo-attribution{
+    font-size: x-small;
+}
+
+footer{
+    background-color: var(--primary-orange);
+    color: black;
+    font-size: 1rem;
+}
+
+#portfolio #logo{
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: inherit;
+}
+
+#portfolio-logo{
+    display: block;
+    margin: 10px auto;
+    height: 2rem;
+    width: 2rem;
+}
+
+footer img{
+        width: 25px;
+        height: 25px;
+        margin: 7px 10px;
+}
+
+footer a{
+    text-decoration: none;
+}
+
+footer a:visited{
+    color: black;
 }
