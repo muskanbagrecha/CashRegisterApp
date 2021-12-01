@@ -1,32 +1,30 @@
-
-var submit = document.querySelector('#submit');
-var message = document.getElementById('error-message');
 var numNotes = document.querySelectorAll('.numnotes');
-const cashGiven = document.getElementById('cashGiven');
-const billAmt = document.getElementById('billAmount');
+var cashGiven = document.querySelector('#cashGiven');
+var billAmt = document.querySelector('#billAmount');
+var submit = document.querySelector('#submit');
+var message = document.querySelector('#error-message');
+
+
 console.log(numNotes[0])
 
 function clickHandler()
 {   
 
-    const bill = billAmt.value;
-    const given = cashGiven.value;
+    var bill = billAmt.value;
+    var given = cashGiven.value;
     console.log("Bill: "+bill);
     console.log("Given: "+given);
-    if( bill<=0 || bill==NaN)
+    if( bill<=0)
     {
-        billAmt.style.borderColor = "red";
-        billAmt.style.backgroundColor = "#ffdddd";
         message.innerText = "Please enter a valid bill amount";
         message.style.color = "red";
     }
     else{
-        if( given<bill)
+        if(parseInt(given)<parseInt(bill))
         {
             console.log("Insufficient cash");
-            cashGiven.style.borderColor = "red";
-            cashGiven.style.backgroundColor = "#ffdddd";
-            message.innerText = "*Cash paid should be atleast equal to the bill amount!";
+            alert("Insufficient cash paid.");
+            message.innerText = "*Cash paid cannot be less than bill amount!";
             message.style.color = "red";
         }
         else if(given==bill)
@@ -34,13 +32,9 @@ function clickHandler()
             message.style.color = "green";
             message.innerText = "Thank you for your payment! You have given the exact change.";
         }
-        else if(given>bill){
+        else{
             console.log("Correct block!")
             message.style.display = "none";
-            billAmt.style.borderColor = "grey";
-            billAmt.style.backgroundColor = "white";
-            cashGiven.style.borderColor = "grey";
-            cashGiven.style.backgroundColor = "white";
             var change = given - bill;
             calculateChange(change);
         }
@@ -50,18 +44,18 @@ function clickHandler()
 
 function calculateChange(change)
 {
-    li = [2000,500,100,20,10,5,1];
+    denominations = [2000,500,100,20,10,5,1];
     var changeList = [];
-    for(let i=0;i<li.length;i++)
+    for(let i=0;i<denominations.length;i++)
     {
-        var num = Math.trunc(change/li[i]);
+        var num = Math.trunc(change/denominations[i]);
         changeList[i]=num;
-        change = change%li[i];
+        numNotes[i].innerText = num;
+        change = change%denominations[i];
     }
     for(let i=0;i<changeList.length;i++)
             {
                 console.log(li[i]+" : "+changeList[i]);
-                numNotes[i].innerText = changeList[i];
             }
     // return changeList;
 }

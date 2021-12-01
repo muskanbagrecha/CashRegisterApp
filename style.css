@@ -3,6 +3,7 @@
     --primary-color: #D8BFD8;
 }
 
+
 .container{
     max-width: 600px;
     background-color: var(--primary-color);
@@ -23,13 +24,15 @@ input{
     margin: 0 auto;
     border-color: grey;
     padding: 4px;
+    box-shadow: #b097b0 0px 0px 20px;
+    border-radius: 10px;
 }
 
 #submit{
-    height: 30px;
+    height: 40px;
     width: 150px;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 40px;
     border-radius: 5px;
     font-size: 16px;
     font-weight: bold;
@@ -42,6 +45,12 @@ input{
     background-color: #b097b0;
 }
 
+label{
+    margin: 20px auto;
+    display: block;
+    font-size: 1.5rem;
+
+}
 
 
 th, td {
